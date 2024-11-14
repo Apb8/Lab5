@@ -278,6 +278,28 @@ MonoBehaviour:
     quaternionParams: []
     quaternionParamsNames: []
     quaternionParamsLostDefaultValue: 
+--- !u!195 &364712323
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364712317}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &612756036 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1878618996558690688, guid: b06544ef6a814034b83ea5c8d962484f, type: 3}
@@ -347,6 +369,41 @@ MonoBehaviour:
     quaternionParams: []
     quaternionParamsNames: []
     quaternionParamsLostDefaultValue: 
+--- !u!195 &612756042
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612756036}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &612756043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612756036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb3d1cfd075150e458ccb2cd16e8689a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasStolenTreasure: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -915,6 +972,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Robber
       objectReference: {fileID: 0}
+    - target: {fileID: 1878618996558690688, guid: b06544ef6a814034b83ea5c8d962484f, type: 3}
+      propertyPath: m_TagString
+      value: Robber
+      objectReference: {fileID: 0}
     - target: {fileID: 8167741581224400030, guid: b06544ef6a814034b83ea5c8d962484f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.08
@@ -962,6 +1023,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1878618996558690688, guid: b06544ef6a814034b83ea5c8d962484f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 612756037}
+    - targetCorrespondingSourceObject: {fileID: 1878618996558690688, guid: b06544ef6a814034b83ea5c8d962484f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 612756042}
+    - targetCorrespondingSourceObject: {fileID: 1878618996558690688, guid: b06544ef6a814034b83ea5c8d962484f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 612756043}
   m_SourcePrefab: {fileID: 100100000, guid: b06544ef6a814034b83ea5c8d962484f, type: 3}
 --- !u!1001 &6164690832898805187
 PrefabInstance:
@@ -977,15 +1044,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3558441764498520148, guid: dd7c2974967fc994fb09f05f942cf33a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.08
+      value: 21.15
       objectReference: {fileID: 0}
     - target: {fileID: 3558441764498520148, guid: dd7c2974967fc994fb09f05f942cf33a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.0000001
+      value: 0.92
       objectReference: {fileID: 0}
     - target: {fileID: 3558441764498520148, guid: dd7c2974967fc994fb09f05f942cf33a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.34
+      value: 5.92
       objectReference: {fileID: 0}
     - target: {fileID: 3558441764498520148, guid: dd7c2974967fc994fb09f05f942cf33a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1022,6 +1089,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2262174681108631538, guid: dd7c2974967fc994fb09f05f942cf33a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 364712318}
+    - targetCorrespondingSourceObject: {fileID: 2262174681108631538, guid: dd7c2974967fc994fb09f05f942cf33a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 364712323}
   m_SourcePrefab: {fileID: 100100000, guid: dd7c2974967fc994fb09f05f942cf33a, type: 3}
 --- !u!1001 &6954218745696653029
 PrefabInstance:
@@ -1033,6 +1103,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7611726030615903187, guid: 8d5862b0f06160e49bcb9de7bf4f13a1, type: 3}
       propertyPath: m_Name
+      value: Treasure
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611726030615903187, guid: 8d5862b0f06160e49bcb9de7bf4f13a1, type: 3}
+      propertyPath: m_TagString
       value: Treasure
       objectReference: {fileID: 0}
     - target: {fileID: 8380275927659641668, guid: 8d5862b0f06160e49bcb9de7bf4f13a1, type: 3}

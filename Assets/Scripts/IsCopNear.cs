@@ -10,6 +10,17 @@ public class IsCopNear : ConditionBase
     {
         GameObject cop = GameObject.Find("Cop");
         GameObject treasure = GameObject.Find("Treasure");
-        return Vector3.Distance(cop.transform.position, treasure.transform.position) < 10f;
+
+        if (cop == null || treasure == null)
+        {
+            Debug.LogError("Cop or Treasure not found in the scene.");
+            return false;
+        }
+
+        float distance = Vector3.Distance(cop.transform.position, treasure.transform.position);
+        Debug.Log("Distance between cop and treasure: " + distance);
+
+        // Usar un rango más amplio para probar
+        return distance < 20f;
     }
 }

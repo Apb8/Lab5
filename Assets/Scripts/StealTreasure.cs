@@ -9,8 +9,30 @@ public class StealTreasure : BasePrimitiveAction
 {
     public override TaskStatus OnUpdate()
     {
+        GameObject robber = GameObject.Find("Robber");
+        RobberState robberState = robber.GetComponent<RobberState>();
+
+        if (robberState.hasStolenTreasure)
+        {
+            Debug.Log("Treasure has already been stolen.");
+            return TaskStatus.COMPLETED; // Ya robó el tesoro, no repetir
+        }
+
         GameObject treasure = GameObject.Find("Treasure");
-        treasure.GetComponent<Renderer>().enabled = false; // Ocultar el tesoro
-        return TaskStatus.COMPLETED;
+
+        if (treasure != null)
+        {
+            treasure.GetComponent<Renderer>().enabled = false; // Ocultar el tesoro
+            robberState.hasStolenTreasure = true; // Marca el tesoro como robado
+            Debug.Log("Treasure stolen!");
+            return TaskStatus.COMPLETED;
+        }
+        else
+        {
+            Debug.LogError("Treasure object not found in the scene.");
+            return TaskStatus.FAILED;
+        }
     }
 }
+
+
