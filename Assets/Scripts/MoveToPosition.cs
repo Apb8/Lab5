@@ -4,8 +4,8 @@ using Pada1.BBCore.Tasks;
 using Pada1.BBCore.Framework;
 using UnityEngine.AI;
 
-[Action("MyActions/MoveToPosition")]
-[Help("Moves the cop to the target position.")]
+[Action("MyActions/MoveToPositionn")]
+[Help("Moves the cop to the target position using NavMeshAgent.")]
 public class MoveToPosition : BasePrimitiveAction
 {
     [InParam("targetPosition")]
@@ -20,19 +20,29 @@ public class MoveToPosition : BasePrimitiveAction
 
         if (agent != null)
         {
-            agent.SetDestination(targetPosition);
-            Debug.Log("Cop moving to: " + targetPosition);
+            agent.SetDestination(targetPosition); // Asigna la posición de destino
+            Debug.Log("Cop moving to position: " + targetPosition);
+        }
+        else
+        {
+            Debug.LogError("No NavMeshAgent found on Cop.");
         }
     }
 
     public override TaskStatus OnUpdate()
     {
+        if (agent == null)
+        {
+            return TaskStatus.FAILED; // Fallo si no hay NavMeshAgent
+        }
+
+        // Comprueba si ha llegado a la posición objetivo
         if (agent.pathPending || agent.remainingDistance > agent.stoppingDistance)
         {
             return TaskStatus.RUNNING; // Sigue moviéndose
         }
 
         Debug.Log("Cop has reached the target position.");
-        return TaskStatus.COMPLETED; // Llegó a destino
+        return TaskStatus.COMPLETED; // Ha llegado al destino
     }
 }

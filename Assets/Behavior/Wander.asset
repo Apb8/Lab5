@@ -15,34 +15,38 @@ MonoBehaviour:
   brickName: Assets/Behavior/Wander.asset
   xml: "\uFEFF<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<BehaviorBricks xmlns:ref=\"urn:padaone\"
     version=\"1.0\">\r\n  <BehaviorTree id=\"0\" />\r\n  <runtimeInfo>\r\n    <BehaviorTree
-    id=\"0\" guid=\"ab8fb72f6e19d4449b265b854b65429e\" nextId=\"9\">\r\n      <root>\r\n       
+    id=\"0\" guid=\"ab8fb72f6e19d4449b265b854b65429e\" nextId=\"11\">\r\n      <root>\r\n       
     <RepeatDecorator id=\"5\" />\r\n      </root>\r\n      <inputParams>\r\n       
     <inputValues>\r\n          <entry name=\"wanderArea\" type=\"UnityEngine.GameObject\"
     isBlackboard=\"False\" />\r\n        </inputValues>\r\n      </inputParams>\r\n     
-    <outputParams />\r\n      <localParams>\r\n        <localValues>\r\n         
-    <entry name=\"wanderTarget\" type=\"UnityEngine.Vector3\" isBlackboard=\"False\"
-    value=\"-20 0 20\" />\r\n        </localValues>\r\n      </localParams>\r\n   
-    </BehaviorTree>\r\n    <RepeatDecorator id=\"5\" loops=\"-1\" policy=\"ContinueWhenChildFails\">\r\n     
-    <child>\r\n        <SequenceNode id=\"4\" />\r\n      </child>\r\n      <inputParams
-    />\r\n      <outputParams />\r\n      <localParams />\r\n    </RepeatDecorator>\r\n   
-    <SequenceNode id=\"4\">\r\n      <children>\r\n        <elem>\r\n          <ActionNode
-    id=\"6\" />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode id=\"8\"
-    />\r\n        </elem>\r\n      </children>\r\n      <inputParams />\r\n     
-    <outputParams />\r\n      <localParams />\r\n    </SequenceNode>\r\n    <ActionNode
-    id=\"6\" action=\"MyActions/GetRandomInArea\">\r\n      <inputParams />\r\n     
-    <outputParams />\r\n      <localParams />\r\n    </ActionNode>\r\n    <ActionNode
-    id=\"8\" action=\"MyActions/MoveToPosition\">\r\n      <inputParams>\r\n       
+    <outputParams>\r\n        <outputValues>\r\n          <entry name=\"targetPosition\"
+    type=\"UnityEngine.Vector3\" isBlackboard=\"True\" />\r\n        </outputValues>\r\n     
+    </outputParams>\r\n      <localParams />\r\n    </BehaviorTree>\r\n    <RepeatDecorator
+    id=\"5\" loops=\"-1\" policy=\"ContinueWhenChildFails\">\r\n      <child>\r\n       
+    <SequenceNode id=\"4\" />\r\n      </child>\r\n      <inputParams />\r\n     
+    <outputParams />\r\n      <localParams />\r\n    </RepeatDecorator>\r\n    <SequenceNode
+    id=\"4\">\r\n      <children>\r\n        <elem>\r\n          <ActionNode id=\"9\"
+    />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode id=\"10\" />\r\n       
+    </elem>\r\n      </children>\r\n      <inputParams />\r\n      <outputParams
+    />\r\n      <localParams />\r\n    </SequenceNode>\r\n    <ActionNode id=\"9\"
+    action=\"MyActions/GetRandomInAreaa\">\r\n      <inputParams>\r\n        <inputValues>\r\n         
+    <entry name=\"radius\" type=\"System.Single\" isBlackboard=\"False\" value=\"20\"
+    />\r\n        </inputValues>\r\n      </inputParams>\r\n      <outputParams>\r\n       
+    <outputValues>\r\n          <entry name=\"targetPosition\" type=\"UnityEngine.Vector3\"
+    isBlackboard=\"True\" blackboard=\"targetPosition\" />\r\n        </outputValues>\r\n     
+    </outputParams>\r\n      <localParams />\r\n    </ActionNode>\r\n    <ActionNode
+    id=\"10\" action=\"MyActions/MoveToPositionn\">\r\n      <inputParams>\r\n       
     <inputValues>\r\n          <entry name=\"targetPosition\" type=\"UnityEngine.Vector3\"
-    isBlackboard=\"True\" blackboard=\"wanderTarget\" />\r\n        </inputValues>\r\n     
+    isBlackboard=\"True\" blackboard=\"targetPosition\" />\r\n        </inputValues>\r\n     
     </inputParams>\r\n      <outputParams />\r\n      <localParams />\r\n    </ActionNode>\r\n 
     </runtimeInfo>\r\n  <editorInfo>\r\n    <BehaviorTree id=\"0\" _name=\"Wander\"
     _description=\"\" _removeIfClosed=\"False\">\r\n      <_rootList>\r\n       
     <elem>\r\n          <SequenceNode id=\"4\" />\r\n        </elem>\r\n        <elem>\r\n         
     <RepeatDecorator id=\"5\" />\r\n        </elem>\r\n        <elem>\r\n         
-    <ActionNode id=\"6\" />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode
-    id=\"8\" />\r\n        </elem>\r\n      </_rootList>\r\n      <_nodes>\r\n       
-    <nodes>\r\n          <ActionNode id=\"6\" />\r\n          <SequenceNode id=\"4\"
-    />\r\n          <RepeatDecorator id=\"5\" />\r\n          <ActionNode id=\"8\"
+    <ActionNode id=\"9\" />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode
+    id=\"10\" />\r\n        </elem>\r\n      </_rootList>\r\n      <_nodes>\r\n       
+    <nodes>\r\n          <ActionNode id=\"10\" />\r\n          <SequenceNode id=\"4\"
+    />\r\n          <RepeatDecorator id=\"5\" />\r\n          <ActionNode id=\"9\"
     />\r\n        </nodes>\r\n      </_nodes>\r\n    </BehaviorTree>\r\n    <RepeatDecorator
     id=\"5\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
     position=\"153.0741 326.2977\" name=\"Repeat\" description=\"Repeats the execution
@@ -53,17 +57,18 @@ MonoBehaviour:
     description=\"Executes all its children in sequence until all of them are successful\"
     cardinality=\"-1\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n         
     <SequenceNode id=\"4\" />\r\n          <RepeatDecorator id=\"5\" />\r\n       
-    </data>\r\n      </_data>\r\n    </SequenceNode>\r\n    <ActionNode id=\"6\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"42.02647
-    677.9167\" name=\"MyActions/GetRandomInArea\" description=\"Calculates a random
-    position within a certain area for the cop.\" cardinality=\"0\" hasParent=\"True\">\r\n         
-    <BehaviorTree id=\"0\" />\r\n          <ActionNode id=\"6\" />\r\n          <SequenceNode
+    </data>\r\n      </_data>\r\n    </SequenceNode>\r\n    <ActionNode id=\"9\">\r\n     
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"True\" position=\"29.99997
+    648.889\" name=\"MyActions/GetRandomInAreaa\" description=\"Calculates a random
+    position within a defined radius on the NavMesh.\" cardinality=\"0\" hasParent=\"True\">\r\n         
+    <BehaviorTree id=\"0\" />\r\n          <ActionNode id=\"9\" />\r\n          <SequenceNode
     id=\"4\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n   
-    <ActionNode id=\"8\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"272.2224 682.2222\" name=\"MyActions/MoveToPosition\" description=\"Moves
-    the cop to the target position.\" cardinality=\"0\" hasParent=\"True\">\r\n         
-    <BehaviorTree id=\"0\" />\r\n          <ActionNode id=\"8\" />\r\n          <SequenceNode
-    id=\"4\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n  </editorInfo>\r\n</BehaviorBricks>"
+    <ActionNode id=\"10\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
+    position=\"275.5555 649.9999\" name=\"MyActions/MoveToPositionn\" description=\"Moves
+    the cop to the target position using NavMeshAgent.\" cardinality=\"0\" hasParent=\"True\">\r\n         
+    <BehaviorTree id=\"0\" />\r\n          <ActionNode id=\"10\" />\r\n         
+    <SequenceNode id=\"4\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n 
+    </editorInfo>\r\n</BehaviorBricks>"
   zoom: 0.6
   subslist:
   - {fileID: 11400000}
