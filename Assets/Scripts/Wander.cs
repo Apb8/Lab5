@@ -12,28 +12,26 @@ public class Wander : BasePrimitiveAction
     private Vector3 wanderPos;
 
     public override void OnStart()
-    {
-        // Solo se ejecuta al inicio de Wander
+    {        
         GameObject robber = GameObject.Find("Robber");
         agent = robber.GetComponent<NavMeshAgent>();
 
-        // Genera una posición aleatoria en el NavMesh
+        //pos aleatoria en el NavMesh
         wanderPos = robber.transform.position + Random.insideUnitSphere * 10.0f;
-        wanderPos.y = robber.transform.position.y; // Mantiene la misma altura
+        wanderPos.y = robber.transform.position.y;
         agent.SetDestination(wanderPos);
 
         Debug.Log("Robber starts wandering to: " + wanderPos);
     }
 
     public override TaskStatus OnUpdate()
-    {
-        // Verifica si ha llegado al destino
+    {        
         if (agent.pathPending || agent.remainingDistance > agent.stoppingDistance)
         {
-            return TaskStatus.RUNNING; // Aún no ha llegado
+            return TaskStatus.RUNNING;
         }
 
         Debug.Log("Robber has reached wander position.");
-        return TaskStatus.COMPLETED; // Ha llegado a destino
+        return TaskStatus.COMPLETED;
     }
 }

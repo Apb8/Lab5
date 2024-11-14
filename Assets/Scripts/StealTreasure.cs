@@ -15,15 +15,15 @@ public class StealTreasure : BasePrimitiveAction
         if (robberState.hasStolenTreasure)
         {
             Debug.Log("Treasure has already been stolen.");
-            return TaskStatus.COMPLETED; // Ya robó el tesoro, no repetir
+            return TaskStatus.COMPLETED;
         }
 
         GameObject treasure = GameObject.Find("Treasure");
 
         if (treasure != null)
         {
-            treasure.GetComponent<Renderer>().enabled = false; // Ocultar el tesoro
-            robberState.hasStolenTreasure = true; // Marca el tesoro como robado
+            treasure.GetComponent<Renderer>().enabled = false;
+            robberState.hasStolenTreasure = true;
             Debug.Log("Treasure stolen!");
             return TaskStatus.COMPLETED;
         }

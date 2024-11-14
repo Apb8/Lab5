@@ -11,7 +11,7 @@ public class ApproachTreasure : BasePrimitiveAction
     private NavMeshAgent agent;
     private GameObject treasure;
 
-    // Distancia mínima para considerar que el ladrón está "cerca" del tesoro
+    // Distancia min
     private const float closeDistance = 1.5f;
 
     public override void OnStart()
@@ -37,23 +37,20 @@ public class ApproachTreasure : BasePrimitiveAction
         {
             return TaskStatus.FAILED;
         }
-
-        // Asegura que el agente haya calculado la ruta y esté en movimiento
+                
         if (agent.pathPending)
         {
-            return TaskStatus.RUNNING; // Espera hasta que la ruta esté calculada
+            return TaskStatus.RUNNING;
         }
-
-        // Calcula la distancia manualmente para asegurarte de que esté cerca
+                
         float distanceToTreasure = Vector3.Distance(agent.transform.position, treasure.transform.position);
-
-        // Verifica si está dentro de la distancia mínima
+               
         if (distanceToTreasure <= closeDistance)
         {
             Debug.Log("Robber has reached close proximity to the treasure.");
-            return TaskStatus.COMPLETED; // Solo pasa a StealTreasure cuando está realmente cerca
+            return TaskStatus.COMPLETED;
         }
 
-        return TaskStatus.RUNNING; // Sigue en el estado Approaching
+        return TaskStatus.RUNNING;
     }
 }

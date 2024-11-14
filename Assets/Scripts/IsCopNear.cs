@@ -19,8 +19,7 @@ public class IsCopNear : ConditionBase
 
         float distance = Vector3.Distance(cop.transform.position, treasure.transform.position);
         Debug.Log("Distance between cop and treasure: " + distance);
-
-        // Usar un rango más amplio para probar
+                
         return distance < 20f;
     }
 }

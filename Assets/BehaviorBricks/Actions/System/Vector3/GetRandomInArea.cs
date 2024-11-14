@@ -16,8 +16,7 @@ namespace BBUnity.Actions
         {
             GameObject cop = GameObject.Find("Cop");
             GameObject treasure = GameObject.Find("Treasure");
-
-            // Condición de proximidad (ajusta la distancia según tu juego)
+                        
             return Vector3.Distance(cop.transform.position, treasure.transform.position) < 10f;
         }
     }

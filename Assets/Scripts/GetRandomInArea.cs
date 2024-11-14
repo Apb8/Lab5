@@ -12,7 +12,7 @@ public class GetRandomInArea : BasePrimitiveAction
     public Vector3 targetPosition;
 
     [InParam("radius")]
-    public float radius = 20.0f; // Aumenta el radio si es necesario
+    public float radius = 20.0f;
 
     public override TaskStatus OnUpdate()
     {
@@ -23,16 +23,13 @@ public class GetRandomInArea : BasePrimitiveAction
             Debug.LogError("Cop object not found in the scene.");
             return TaskStatus.FAILED;
         }
-
-        // Genera una dirección aleatoria dentro del radio en el plano XZ
+                
         Vector3 randomDirection = Random.insideUnitSphere * radius;
-        randomDirection.y = 0; // Mantener en el plano horizontal
+        randomDirection.y = 0;
         randomDirection += cop.transform.position;
-
-        // Ajusta la posición generada a la altura del Cop
+                
         randomDirection.y = cop.transform.position.y;
-
-        // Buscar la posición válida en la NavMesh dentro del radio
+                
         NavMeshHit navHit;
         if (NavMesh.SamplePosition(randomDirection, out navHit, radius, NavMesh.AllAreas))
         {
