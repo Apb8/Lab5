@@ -9,7 +9,7 @@ using UnityEngine.AI;
 public class MoveToPosition : BasePrimitiveAction
 {
     [InParam("targetPosition")]
-    public Vector3 targetPosition; // Posición objetivo pasada por `GetRandomInArea`
+    public Vector3 targetPosition;
 
     private NavMeshAgent agent;
 
@@ -20,7 +20,7 @@ public class MoveToPosition : BasePrimitiveAction
 
         if (agent != null)
         {
-            agent.SetDestination(targetPosition); // Asigna la posición de destino
+            agent.SetDestination(targetPosition); 
             Debug.Log("Cop moving to position: " + targetPosition);
         }
         else
@@ -33,16 +33,15 @@ public class MoveToPosition : BasePrimitiveAction
     {
         if (agent == null)
         {
-            return TaskStatus.FAILED; // Fallo si no hay NavMeshAgent
+            return TaskStatus.FAILED; 
         }
-
-        // Comprueba si ha llegado a la posición objetivo
+            
         if (agent.pathPending || agent.remainingDistance > agent.stoppingDistance)
         {
-            return TaskStatus.RUNNING; // Sigue moviéndose
+            return TaskStatus.RUNNING;
         }
 
         Debug.Log("Cop has reached the target position.");
-        return TaskStatus.COMPLETED; // Ha llegado al destino
+        return TaskStatus.COMPLETED; 
     }
 }
