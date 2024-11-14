@@ -15,28 +15,33 @@ MonoBehaviour:
   brickName: Assets/Behavior/RobberFSM.asset
   xml: "\uFEFF<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<BehaviorBricks xmlns:ref=\"urn:padaone\"
     version=\"1.0\">\r\n  <BehaviorTree id=\"0\" />\r\n  <runtimeInfo>\r\n    <BehaviorTree
-    id=\"0\" guid=\"1654fa30f7d7cdb46b04d8b49d96746f\" nextId=\"15\">\r\n      <root>\r\n       
-    <RepeatDecorator id=\"10\" />\r\n      </root>\r\n      <inputParams />\r\n     
+    id=\"0\" guid=\"1654fa30f7d7cdb46b04d8b49d96746f\" nextId=\"23\">\r\n      <root>\r\n       
+    <RepeatDecorator id=\"19\" />\r\n      </root>\r\n      <inputParams>\r\n       
+    <inputValues>\r\n          <entry name=\"hasStolenTreasure\" type=\"System.Single\"
+    isBlackboard=\"False\" value=\"0\" />\r\n        </inputValues>\r\n      </inputParams>\r\n     
     <outputParams>\r\n        <outputValues>\r\n          <entry name=\"targetPosition\"
     type=\"UnityEngine.Vector3\" isBlackboard=\"True\" />\r\n        </outputValues>\r\n     
     </outputParams>\r\n      <localParams />\r\n    </BehaviorTree>\r\n    <RepeatDecorator
-    id=\"10\" loops=\"-1\" policy=\"ContinueWhenChildFails\">\r\n      <child>\r\n       
-    <SequenceNode id=\"14\" />\r\n      </child>\r\n      <inputParams />\r\n     
+    id=\"19\" loops=\"-1\" policy=\"ContinueWhenChildFails\">\r\n      <child>\r\n       
+    <SequenceNode id=\"16\" />\r\n      </child>\r\n      <inputParams />\r\n     
     <outputParams />\r\n      <localParams />\r\n    </RepeatDecorator>\r\n    <SequenceNode
-    id=\"14\">\r\n      <children>\r\n        <elem>\r\n          <SequenceNode id=\"1\"
-    />\r\n        </elem>\r\n        <elem>\r\n          <SequenceNode id=\"6\" />\r\n       
-    </elem>\r\n        <elem>\r\n          <ActionNode id=\"13\" />\r\n        </elem>\r\n     
+    id=\"16\">\r\n      <children>\r\n        <elem>\r\n          <SelectorNode id=\"17\"
+    />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode id=\"13\" />\r\n       
+    </elem>\r\n      </children>\r\n      <inputParams />\r\n      <outputParams
+    />\r\n      <localParams />\r\n    </SequenceNode>\r\n    <SelectorNode id=\"17\">\r\n     
+    <children>\r\n        <elem>\r\n          <SequenceNode id=\"1\" />\r\n       
+    </elem>\r\n        <elem>\r\n          <SequenceNode id=\"6\" />\r\n        </elem>\r\n     
     </children>\r\n      <inputParams />\r\n      <outputParams />\r\n      <localParams
-    />\r\n    </SequenceNode>\r\n    <SequenceNode id=\"1\">\r\n      <children>\r\n       
-    <elem>\r\n          <ConditionNode id=\"2\" />\r\n        </elem>\r\n       
-    <elem>\r\n          <ActionNode id=\"5\" />\r\n        </elem>\r\n      </children>\r\n     
-    <inputParams />\r\n      <outputParams />\r\n      <localParams />\r\n    </SequenceNode>\r\n   
-    <SequenceNode id=\"6\">\r\n      <children>\r\n        <elem>\r\n          <ActionNode
-    id=\"7\" />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode id=\"8\"
+    />\r\n    </SelectorNode>\r\n    <ActionNode id=\"13\" action=\"MyActions/Wander\">\r\n     
+    <inputParams />\r\n      <outputParams />\r\n      <localParams />\r\n    </ActionNode>\r\n   
+    <SequenceNode id=\"1\">\r\n      <children>\r\n        <elem>\r\n          <ConditionNode
+    id=\"2\" />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode id=\"5\"
     />\r\n        </elem>\r\n      </children>\r\n      <inputParams />\r\n     
-    <outputParams />\r\n      <localParams />\r\n    </SequenceNode>\r\n    <ActionNode
-    id=\"13\" action=\"MyActions/Wander\">\r\n      <inputParams />\r\n      <outputParams
-    />\r\n      <localParams />\r\n    </ActionNode>\r\n    <ConditionNode id=\"2\">\r\n     
+    <outputParams />\r\n      <localParams />\r\n    </SequenceNode>\r\n    <SequenceNode
+    id=\"6\">\r\n      <children>\r\n        <elem>\r\n          <ActionNode id=\"7\"
+    />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode id=\"8\" />\r\n       
+    </elem>\r\n      </children>\r\n      <inputParams />\r\n      <outputParams
+    />\r\n      <localParams />\r\n    </SequenceNode>\r\n    <ConditionNode id=\"2\">\r\n     
     <condition>\r\n        <ConditionEvalNode id=\"0\" />\r\n      </condition>\r\n     
     <inputParams />\r\n      <outputParams />\r\n      <localParams />\r\n    </ConditionNode>\r\n   
     <ActionNode id=\"5\" action=\"MyActions/Hide\">\r\n      <inputParams />\r\n     
@@ -45,8 +50,8 @@ MonoBehaviour:
     <outputParams />\r\n      <localParams />\r\n    </ActionNode>\r\n    <ActionNode
     id=\"8\" action=\"MyActions/StealTreasure\">\r\n      <inputParams />\r\n     
     <outputParams />\r\n      <localParams />\r\n    </ActionNode>\r\n    <ConditionEvalNode
-    id=\"0\" policy=\"ATOMIC_CHECK\" name=\"MyConditions/IsCopNear\">\r\n      <inputParams
-    />\r\n      <outputParams />\r\n      <localParams />\r\n    </ConditionEvalNode>\r\n 
+    id=\"0\" policy=\"ATOMIC_CHECK\" name=\"MyConditions/HasNotStolenTreasure\">\r\n     
+    <inputParams />\r\n      <outputParams />\r\n      <localParams />\r\n    </ConditionEvalNode>\r\n 
     </runtimeInfo>\r\n  <editorInfo>\r\n    <BehaviorTree id=\"0\" _name=\"RobberFSM\"
     _description=\"\" _removeIfClosed=\"False\">\r\n      <_rootList>\r\n       
     <elem>\r\n          <SequenceNode id=\"1\" />\r\n        </elem>\r\n        <elem>\r\n         
@@ -54,63 +59,78 @@ MonoBehaviour:
     <ActionNode id=\"5\" />\r\n        </elem>\r\n        <elem>\r\n          <SequenceNode
     id=\"6\" />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode id=\"7\"
     />\r\n        </elem>\r\n        <elem>\r\n          <ActionNode id=\"8\" />\r\n       
-    </elem>\r\n        <elem>\r\n          <RepeatDecorator id=\"10\" />\r\n       
     </elem>\r\n        <elem>\r\n          <ActionNode id=\"13\" />\r\n        </elem>\r\n       
-    <elem>\r\n          <SequenceNode id=\"14\" />\r\n        </elem>\r\n      </_rootList>\r\n     
-    <_nodes>\r\n        <nodes>\r\n          <SequenceNode id=\"1\" />\r\n         
-    <ConditionNode id=\"2\" />\r\n          <SequenceNode id=\"14\" />\r\n         
-    <ActionNode id=\"5\" />\r\n          <SequenceNode id=\"6\" />\r\n          <ActionNode
-    id=\"7\" />\r\n          <ActionNode id=\"8\" />\r\n          <ActionNode id=\"13\"
-    />\r\n          <RepeatDecorator id=\"10\" />\r\n        </nodes>\r\n      </_nodes>\r\n   
-    </BehaviorTree>\r\n    <RepeatDecorator id=\"10\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"132.2734 172.3016\" name=\"Repeat\"
+    <elem>\r\n          <SequenceNode id=\"16\" />\r\n        </elem>\r\n       
+    <elem>\r\n          <SelectorNode id=\"17\" />\r\n        </elem>\r\n       
+    <elem>\r\n          <RepeatDecorator id=\"19\" />\r\n        </elem>\r\n     
+    </_rootList>\r\n      <_nodes>\r\n        <nodes>\r\n          <SequenceNode
+    id=\"1\" />\r\n          <ConditionNode id=\"2\" />\r\n          <SequenceNode
+    id=\"16\" />\r\n          <ActionNode id=\"5\" />\r\n          <SequenceNode
+    id=\"6\" />\r\n          <ActionNode id=\"7\" />\r\n          <ActionNode id=\"8\"
+    />\r\n          <ActionNode id=\"13\" />\r\n          <SelectorNode id=\"17\"
+    />\r\n          <RepeatDecorator id=\"19\" />\r\n        </nodes>\r\n      </_nodes>\r\n   
+    </BehaviorTree>\r\n    <RepeatDecorator id=\"19\">\r\n      <_data>\r\n       
+    <data breakpoint=\"0\" selected=\"False\" position=\"216 80\" name=\"Repeat\"
     description=\"Repeats the execution of its child node\" cardinality=\"1\" hasParent=\"False\">\r\n         
-    <BehaviorTree id=\"0\" />\r\n          <RepeatDecorator id=\"10\" />\r\n       
-    </data>\r\n      </_data>\r\n    </RepeatDecorator>\r\n    <SequenceNode id=\"14\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"129.3333
-    301.3334\" name=\"Sequence\" description=\"Executes all its children in sequence
-    until all of them are successful\" cardinality=\"-1\" hasParent=\"True\">\r\n         
-    <BehaviorTree id=\"0\" />\r\n          <SequenceNode id=\"14\" />\r\n         
-    <RepeatDecorator id=\"10\" />\r\n        </data>\r\n      </_data>\r\n    </SequenceNode>\r\n   
+    <BehaviorTree id=\"0\" />\r\n          <RepeatDecorator id=\"19\" />\r\n       
+    </data>\r\n      </_data>\r\n    </RepeatDecorator>\r\n    <SequenceNode id=\"16\">\r\n     
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"208 209.3333\"
+    name=\"Sequence\" description=\"Executes all its children in sequence until all
+    of them are successful\" cardinality=\"-1\" hasParent=\"True\">\r\n         
+    <BehaviorTree id=\"0\" />\r\n          <RepeatUntilSuccess id=\"18\" />\r\n         
+    <RepeatDecorator id=\"19\" />\r\n        </data>\r\n      </_data>\r\n    </SequenceNode>\r\n   
+    <SelectorNode id=\"17\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
+    position=\"164 329.3333\" name=\"Selector\" description=\"Executes all its children
+    until one of them is successful\" cardinality=\"-1\" hasParent=\"True\">\r\n         
+    <BehaviorTree id=\"0\" />\r\n          <SelectorNode id=\"17\" />\r\n         
+    <SequenceNode id=\"16\" />\r\n        </data>\r\n      </_data>\r\n    </SelectorNode>\r\n   
+    <ActionNode id=\"13\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
+    position=\"382.6669 322.6668\" name=\"MyActions/Wander\" description=\"Makes
+    the robber wander randomly.\" cardinality=\"0\" hasParent=\"True\">\r\n         
+    <BehaviorTree id=\"0\" />\r\n          <ActionNode id=\"13\" />\r\n         
+    <SequenceNode id=\"16\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n   
     <SequenceNode id=\"1\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"-36.28827 458.9169\" name=\"Sequence\" description=\"Executes all
-    its children in sequence until all of them are successful\" cardinality=\"-1\"
-    hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <SequenceNode
-    id=\"1\" />\r\n          <SequenceNode id=\"14\" />\r\n        </data>\r\n     
-    </_data>\r\n    </SequenceNode>\r\n    <SequenceNode id=\"6\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"173.1236 458.2181\" name=\"Sequence\"
-    description=\"Executes all its children in sequence until all of them are successful\"
-    cardinality=\"-1\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n         
-    <SequenceNode id=\"6\" />\r\n          <SequenceNode id=\"14\" />\r\n       
-    </data>\r\n      </_data>\r\n    </SequenceNode>\r\n    <ActionNode id=\"13\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"568.0001
-    456.0001\" name=\"MyActions/Wander\" description=\"Makes the robber wander randomly.\"
-    cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n         
-    <ActionNode id=\"13\" />\r\n          <SequenceNode id=\"14\" />\r\n        </data>\r\n     
-    </_data>\r\n    </ActionNode>\r\n    <ConditionNode id=\"2\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"-103.8922 636.0796\" name=\"MyConditions/IsCopNear\"
-    description=\"Checks whether the cop is near the treasure.\" cardinality=\"0\"
-    hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ConditionNode
-    id=\"2\" />\r\n          <SequenceNode id=\"1\" />\r\n        </data>\r\n     
-    </_data>\r\n    </ConditionNode>\r\n    <ActionNode id=\"5\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"72.01245 635.996\" name=\"MyActions/Hide\"
-    description=\"Makes the robber hide.\" cardinality=\"0\" hasParent=\"True\">\r\n         
-    <BehaviorTree id=\"0\" />\r\n          <ActionNode id=\"5\" />\r\n          <SequenceNode
-    id=\"1\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n   
-    <ActionNode id=\"7\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"198.0119 627.7748\" name=\"MyActions/ApproachTreasure\" description=\"Makes
+    position=\"45.04507 442.917\" name=\"Sequence\" description=\"Executes all its
+    children in sequence until all of them are successful\" cardinality=\"-1\" hasParent=\"True\">\r\n         
+    <BehaviorTree id=\"0\" />\r\n          <SequenceNode id=\"1\" />\r\n         
+    <SelectorNode id=\"17\" />\r\n        </data>\r\n      </_data>\r\n    </SequenceNode>\r\n   
+    <SequenceNode id=\"6\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
+    position=\"313.1235 431.5515\" name=\"Sequence\" description=\"Executes all its
+    children in sequence until all of them are successful\" cardinality=\"-1\" hasParent=\"True\">\r\n         
+    <BehaviorTree id=\"0\" />\r\n          <SequenceNode id=\"6\" />\r\n         
+    <SelectorNode id=\"17\" />\r\n        </data>\r\n      </_data>\r\n    </SequenceNode>\r\n   
+    <ConditionNode id=\"2\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
+    position=\"-11.8922 592.0797\" name=\"MyConditions/IsCopNear\" description=\"Checks
+    whether the cop is near the treasure.\" cardinality=\"0\" hasParent=\"True\">\r\n         
+    <BehaviorTree id=\"0\" />\r\n          <ConditionNode id=\"2\" />\r\n         
+    <SequenceNode id=\"1\" />\r\n        </data>\r\n      </_data>\r\n    </ConditionNode>\r\n   
+    <ActionNode id=\"5\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
+    position=\"164.0125 593.3293\" name=\"MyActions/Hide\" description=\"Makes the
+    robber hide.\" cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree
+    id=\"0\" />\r\n          <ActionNode id=\"5\" />\r\n          <SequenceNode id=\"1\"
+    />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n    <ActionNode
+    id=\"7\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
+    position=\"287.3451 593.1082\" name=\"MyActions/ApproachTreasure\" description=\"Makes
     the robber approach the treasure.\" cardinality=\"0\" hasParent=\"True\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <ActionNode id=\"7\" />\r\n          <SequenceNode
     id=\"6\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n   
-    <ActionNode id=\"8\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"426.4564 624.8853\" name=\"MyActions/StealTreasure\" description=\"Steals
+    <ActionNode id=\"8\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"True\"
+    position=\"530.4564 594.2188\" name=\"MyActions/StealTreasure\" description=\"Steals
     the treasure.\" cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree
     id=\"0\" />\r\n          <ActionNode id=\"8\" />\r\n          <SequenceNode id=\"6\"
     />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n    <ConditionEvalNode
     id=\"0\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
     position=\"0 0\" name=\"AlwaysTrue\" description=\"Eval\" cardinality=\"1\" hasParent=\"False\">\r\n         
     <BehaviorTree id=\"0\" />\r\n        </data>\r\n      </_data>\r\n    </ConditionEvalNode>\r\n 
-    </editorInfo>\r\n</BehaviorBricks>"
+    </editorInfo>\r\n  <runtimeInfo>\r\n    <RepeatUntilSuccess id=\"18\">\r\n     
+    <child>\r\n        <SequenceNode id=\"16\" />\r\n      </child>\r\n      <inputParams
+    />\r\n      <outputParams />\r\n      <localParams />\r\n    </RepeatUntilSuccess>\r\n 
+    </runtimeInfo>\r\n  <editorInfo>\r\n    <RepeatUntilSuccess id=\"18\">\r\n     
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"True\" position=\"144 70.66667\"
+    name=\"Repeat Until Success\" description=\"Repeats the execution of its child
+    node until it success\" cardinality=\"1\" hasParent=\"False\">\r\n          <BehaviorTree
+    id=\"0\" />\r\n          <RepeatUntilSuccess id=\"18\" />\r\n        </data>\r\n     
+    </_data>\r\n    </RepeatUntilSuccess>\r\n  </editorInfo>\r\n</BehaviorBricks>"
   zoom: 0.5
   subslist:
   - {fileID: 11400000, guid: ab8fb72f6e19d4449b265b854b65429e, type: 2}

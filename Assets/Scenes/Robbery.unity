@@ -328,8 +328,10 @@ MonoBehaviour:
     boolParams: 
     boolParamsNames: []
     boolParamsLostDefaultValue: 
-    floatParams: []
-    floatParamsNames: []
+    floatParams:
+    - 0
+    floatParamsNames:
+    - hasStolenTreasure
     floatParamsLostDefaultValue: 
     stringParams: []
     stringParamsNames: []
@@ -378,7 +380,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 612756036}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.1
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
